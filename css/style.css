@@ -189,7 +189,18 @@ body.nav-open { overflow: hidden; }
 .hero--slime2 { background-image: url(../assets/images/hero/slime2-hero.jpg); }
 .hero--slime3 { background-image: url(../assets/images/hero/slime3-hero.jpg); background-position: 50% 40%; }
 .hero--slime4 { background-image: url(../assets/images/hero/slime4-hero.jpg); background-position: 50% 14%; }
-.hero--slime5 { background: linear-gradient(135deg, #4f4f4e 0%, #2a2a2a 100%); }
+.hero--slime5 {
+  background-image: url(../assets/images/hero/slime5-hero.jpg);
+  background-position: center;
+}
+/* "SLIME V" lockup: cap the height so the hero collapses to the same wide
+   cinematic band as SLIME 4 (~470px) instead of inflating to a tall near-square.
+   The dripping logo is taller in aspect, so we constrain by height; on narrow
+   screens the width cap binds first, keeping it responsive like the other heroes. */
+body.conf--slime5 .hero__logo {
+  max-width: min(860px, 94%);
+  max-height: 350px;
+}
 .hero--gallery { background-image: url(../assets/images/hero/gallery-hero.jpg); background-position: 50% 57%; min-height: 340px; }
 
 /* ---- Content bands --------------------------------------------------- */
@@ -282,9 +293,30 @@ body.conf--slime3 .band--schedule { background: #e6fad2; }
 body.conf--slime2 .hero__subtitle { color: #65ff00; }
 /* SLIME 1 */
 body.conf--slime1 .hero__subtitle { color: #67ff00; }
-/* SLIME 5 placeholder */
-body.conf--slime5 .band-title { background: #ededed; }
+/* SLIME 5 — animated black oil-slick title bar: iridescent sheens drift over near-black */
+body.conf--slime5 .band-title {
+  background:
+    linear-gradient(100deg,
+      transparent 30%,
+      rgba(150, 68, 205, 0.22) 42%,
+      rgba(206, 92, 198, 0.55) 50%,
+      rgba(150, 68, 205, 0.22) 58%,
+      transparent 70%),
+    #08080d;
+  background-size: 220% 100%, 100% 100%;
+  animation: oil-shimmer 80s ease-in-out infinite;
+}
+body.conf--slime5 .band-title h1 { color: #f4f2ff; text-shadow: 0 1px 3px rgba(0,0,0,0.55); }
+@keyframes oil-shimmer {
+  0%   { background-position: 0% 0, 0 0; }
+  50%  { background-position: 100% 0, 0 0; }
+  100% { background-position: 0% 0, 0 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  body.conf--slime5 .band-title { animation: none; }
+}
 body.conf--slime5 .band--logistics { background: #f7f7f7; }
+body.conf--slime5 .band--schedule { background: #f7f7f7; }
 
 /* ---- Gallery --------------------------------------------------------- */
 .gallery-grid {
