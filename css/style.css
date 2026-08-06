@@ -257,6 +257,16 @@ body.conf--slime5 .hero__logo {
 .person { margin: 0 0 1em; }
 .person .role { color: var(--text); }
 
+/* speaker–commentator pairs table */
+.pairs-head,
+.pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px 40px;
+}
+.pairs-head h2 { margin-bottom: 0.7em; }
+.pair .person { margin: 0 0 1.4em; }
+
 /* colophon */
 .colophon { text-align: center; }
 .colophon .credit { color: var(--accent-credit); }
@@ -388,6 +398,10 @@ body.conf--slime5 .band--schedule { background: #f7f7f7; }
 
 @media (max-width: 767px) {
   .two-col { grid-template-columns: 1fr; gap: 24px; }
+  .pairs-head { display: none; }
+  .pair { grid-template-columns: 1fr; gap: 0; margin-bottom: 1.6em; }
+  .pair .person { margin: 0 0 0.4em; }
+  .person--commentator::before { content: "Commentator: "; font-style: italic; }
   .info-row { grid-template-columns: 1fr; gap: 6px; }
   .info-row__label { font-size: 18px; }
   .gallery-grid { grid-template-columns: repeat(2, 1fr); }
