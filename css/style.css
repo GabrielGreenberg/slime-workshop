@@ -326,8 +326,7 @@ body.conf--slime5 .band-title h1 { color: #f4f2ff; text-shadow: 0 1px 3px rgba(0
   body.conf--slime5 .band-title { animation: none; }
 }
 body.conf--slime5 .band--logistics { background: #f7f7f7; }
-body.conf--slime5 .band--schedule,
-body.conf--slime5 .band--talks { background: #f7f7f7; }
+body.conf--slime5 .band--schedule { background: #f7f7f7; }
 
 /* ---- Gallery --------------------------------------------------------- */
 .gallery-grid {
